@@ -82,4 +82,4 @@ Gatsby.js など静的サイトジェネで手取り早くフォームを使う�
 
 ## 参考
 
-![ソースコードコピペで簡単 Contact Form 7 カスタマイズ シンプルデザイン 2020年度版](https://noripon.blog/2020/03/23/how-to-customize-contact-form-7-wordpress/)
+[ソースコードコピペで簡単 Contact Form 7 カスタマイズ シンプルデザイン 2020年度版](https://noripon.blog/2020/03/23/how-to-customize-contact-form-7-wordpress/)
