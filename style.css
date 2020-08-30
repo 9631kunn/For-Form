@@ -7,138 +7,207 @@ Author: @9631kunn
   margin: 0;
   padding: 0;
 }
-table {
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Segoe UI,
+    Hiragino Kaku Gothic ProN, Hiragino Sans, ヒラギノ角ゴ ProN W3, Arial,
+    メイリオ, Meiryo, sans-serif;
+}
+/**************
+LAYOUT
+**************/
+.form {
+  font-size: 16px;
   margin: 0 auto;
   max-width: 980px;
   width: 100%;
 }
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"],
-select,
-textarea,
-.field {
-  display: block;
+.form .form__table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0 auto 10px;
   width: 100%;
-  height: 45px;
-  margin-bottom: 0;
-  padding: 0 12px;
+}
+/**************
+FORM STYLE
+**************/
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="datetime"],
+.form input[type="date"],
+.form input[type="month"],
+.form input[type="time"],
+.form input[type="week"],
+.form input[type="number"],
+.form input[type="email"],
+.form input[type="url"],
+.form input[type="search"],
+.form input[type="tel"],
+.form input[type="color"],
+.form select,
+.form textarea,
+.form .field {
+  background-color: #eff1f5;
   border: 0;
   border-radius: 3px;
-  background-color: #eff1f5;
   box-shadow: none;
   color: #5c6b80;
-  font-size: 1em;
-  vertical-align: middle;
+  display: block;
+  font-size: 1em; /* iPhoneの入力時ズーム解消のため16px以下にしない */
+  height: 45px;
   line-height: 45px;
-  transition: background-color 0.24s ease-in-out;
+  margin-block-end: 0;
+  padding: 0 1em;
+  transition: background-color 0.3s ease-in-out;
+  width: 100%;
 }
-textarea {
+.form input[type="checkbox"],
+.form input[type="radio"] {
+  margin-inline-end: 5px;
+}
+.form textarea {
+  line-height: 1.5em;
   max-width: 100%;
   min-height: 120px;
-  line-height: 1.5em;
-  padding: 0.5em;
   overflow: auto;
+  padding: 0.5em;
 }
-@media (max-width: 500px) {
-  .inquiry td,
-  .inquiry th {
-    display: block !important;
-    width: 100% !important;
-    border-top: none !important;
-    -webkit-box-sizing: border-box !important;
-    -moz-box-sizing: border-box !important;
-    box-sizing: border-box !important;
-  }
-  .inquiry tr:first-child th {
-    border-top: 1px solid #d7d7d7 !important;
-  }
-  .inquiry .any,
-  .inquiry .haveto {
-    font-size: 10px;
-  }
+.form input[type="submit"],
+.form input[type="button"] {
+  -webkit-appearance: button;
+  appearance: button;
+  border: none;
+  border-radius: 0;
+  -webkit-box-sizing: content-box;
+  box-sizing: border-box;
+  cursor: pointer;
 }
-.inquiry th {
-  text-align: left;
-  font-size: 14px;
-  color: #444;
-  padding-right: 5px;
-  width: 30%;
+input[type="submit"]::-webkit-search-decoration,
+input[type="button"]::-webkit-search-decoration {
+  display: none;
+}
+input[type="submit"]::focus,
+input[type="button"]::focus {
+  outline-offset: -2px;
+}
+/**************
+TABLE ITEM
+**************/
+.form th {
   background: #f7f7f7;
-  border: solid 1px #d7d7d7;
-}
-.inquiry td {
-  font-size: 13px;
-  border: solid 1px #d7d7d7;
-}
-.inquiry tr,
-table {
-  border: solid 1px #d7d7d7;
-}
-.haveto {
-  font-size: 7px;
+  color: #444;
+  font-size: 0.85em;
   padding: 5px;
+  text-align: left;
+}
+.form th,
+.form td {
+  border: solid 1px #d7d7d7;
+}
+.form td {
+  background-color: #eff1f5;
+}
+/**************
+DESIGN
+**************/
+.form__label--must,
+.form__label--any {
+  border-radius: 2px;
+  color: #fff;
+  font-size: 0.85em;
+  margin-inline-end: 5px;
+  padding: 5px;
+  position: relative;
+}
+.form__label--must {
   background: #ff9393;
-  color: #fff;
-  border-radius: 2px;
-  margin-right: 5px;
-  position: relative;
-  bottom: 1px;
 }
-.any {
-  font-size: 7px;
-  padding: 5px;
+.form__label--any {
   background: #93c9ff;
-  color: #fff;
-  border-radius: 2px;
-  margin-right: 5px;
-  position: relative;
-  bottom: 1px;
 }
-.verticallist .wpcf7-list-item {
-  display: block;
+.form__center {
+  text-align: center;
+}
+.form__radio {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  line-height: 45px;
 }
 #formbtn {
+  background: #ffaa56;
+  border-radius: 30px;
+  box-shadow: 0 2px 2px hsl(0 0% 0% / 30%);
+  color: #fff;
   display: block;
   padding: 15px;
-  width: 350px;
-  background: #ffaa56;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 700;
-  border-radius: 2px;
-  margin: 25px auto 0;
+  font-size: 16px;
+  margin: 25px auto 10px;
+  max-width: 350px;
+  transition: 0.5s;
+  width: 100%;
 }
 #formbtn:hover {
-  background: #fff;
-  color: #ffaa56;
-  border: 2px solid #ffaa56;
+  box-shadow: 0 10px 30px -10px hsl(0 0% 0% / 70%);
+  transform: translateY(-2px);
 }
-th {
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 13px;
+/**************
+CONTACT FORM CUSTOM
+**************/
+.screen-reader-response,
+.wpcf7-response-output {
+  color: #ff9393;
+  margin: 10px auto;
+  max-width: 980px;
+  padding: 1em;
 }
-td {
-  border-top: 1px solid #ededed;
-  padding: 12px;
+.screen-reader-response ul {
+  list-style: none;
 }
-input,
-select,
-textarea {
-  border: 1px solid #dfdfdf;
-  letter-spacing: 1px;
-  margin: 0;
-  max-width: 100%;
-  resize: none;
+.screen-reader-response ul li {
+  font-size: 12px;
+}
+.wpcf7-not-valid-tip {
+  color: #ff9393;
+  font-size: 12px;
+  margin: 5px 10px;
+}
+/**************
+RESPONSIVE
+**************/
+@media (max-width: 480px) {
+  .form input[type="text"],
+  .form input[type="password"],
+  .form input[type="datetime"],
+  .form input[type="date"],
+  .form input[type="month"],
+  .form input[type="time"],
+  .form input[type="week"],
+  .form input[type="number"],
+  .form input[type="email"],
+  .form input[type="url"],
+  .form input[type="search"],
+  .form input[type="tel"],
+  .form input[type="color"],
+  .form select,
+  .form textarea,
+  .form .field {
+    transform: scale(calc(14 / 16)); /* iPhoneの入力時ズーム解消 */
+  }
+  .form th,
+  .form td {
+    display: block;
+  }
+  .form th {
+    padding: 15px 10px;
+  }
+}
+
+@media (min-width: 481px) {
+  .form th,
+  .form td {
+    display: table-cell;
+  }
+  .form th {
+    width: 35%;
+  }
 }
